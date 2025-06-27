@@ -2,6 +2,8 @@ package com.course.ai.rag_pipeline.config;
 
 import org.springframework.ai.chat.client.ChatClient;
 import org.springframework.ai.chat.client.advisor.SimpleLoggerAdvisor;
+import org.springframework.ai.transformer.splitter.TextSplitter;
+import org.springframework.ai.transformer.splitter.TokenTextSplitter;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestClient;
@@ -18,5 +20,10 @@ public class AIConfig {
     ChatClient chatClient(ChatClient.Builder builder) {
         return builder.defaultAdvisors(new SimpleLoggerAdvisor())
                 .build();
+    }
+
+    @Bean
+    TextSplitter textSplitter() {
+        return new TokenTextSplitter();
     }
 }
