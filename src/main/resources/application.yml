@@ -25,7 +25,6 @@ spring:
           dimensions: 768
     vectorstore:
       neo4j:
-        index-name: spring-ai-document-index
         embedding-dimension: 768
         initialize-schema: true
   neo4j:
@@ -37,4 +36,10 @@ spring:
     url: jdbc:postgresql://localhost:5432/postgres
     username: postgres
     password: postgres
+  temporal:
+    namespace: default
+    connection:
+      target: 127.0.0.1:7233
+    workersAutoDiscovery:
+      packages: com.course.ai
 
